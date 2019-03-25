@@ -6,19 +6,19 @@ Unique interface is built by reading the SQL InformationSchema to determine tabl
 
 Related tables are automatically selected and will be included in your query. Don't worry, you can deselect them on the next page.
 
-![InfoView](InfoView.png?raw=true)
+![InfoView](infoview.png?raw=true)
 
 ### Tweak and Save the Generated Query
 
 Sample data is queried from your database to make it easy to include just what you need for the query.
 
-![QueryView](QueryView.png?raw=true)
+![QueryView](queryview.png?raw=true)
 
 ### See The Code
 
 The cloned solution has a class library with several helpful classes. This example shows how the QueryBuilder class (from .Net Controller) can be used to surface your query in a client application.
 
-![CodeView](CodeView.png?raw=true)
+![CodeView](codeview.png?raw=true)
 
 
 ## setup requirements
