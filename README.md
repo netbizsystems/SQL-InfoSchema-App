@@ -12,7 +12,7 @@ Related tables are automatically selected and will be included in your query. Do
 
 ### Tweak and Save the Generated Query
 
-Sample data is queried from your database to make it easy to include just what you need for the query. Click SAVE to save your query to the SQL query store (table).
+Sample data is queried from your database to make it easy to include just what you need for the query. Click *Save SQL Query* to save your query to the SQL query store (table).
 
 ![QueryView](queryview.png?raw=true)
 
