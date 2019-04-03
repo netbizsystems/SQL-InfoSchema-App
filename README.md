@@ -12,13 +12,13 @@ Related tables are automatically selected and will be included in your query. Do
 
 ### Tweak and Save the Generated Query
 
-Sample data is queried from your database to make it easy to include just what you need for the query. Click ** *Save SQL Query* ** to save your query to the SQL query store (table).
+Sample data is queried from your database to make it easy to include just what you need for the query. Click **Save SQL Query** to save your query to the SQL query store (table).
 
 ![QueryView](queryview.png?raw=true)
 
 ### See The Code
 
-The cloned solution has a class library with several helpful classes to work with your query. This example shows how the *QueryRunnerController* class (from .Net Controller) can be used to surface your query in a client application.
+The cloned solution has a class library with several helpful classes to work with your query. This example shows how the **QueryRunnerController** class (from .Net Controller) can be used to surface your query in a client application.
 
 ![CodeView](codeview.png?raw=true)
 
