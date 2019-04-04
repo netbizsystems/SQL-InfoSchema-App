@@ -6,19 +6,21 @@ Unique interface is built by reading the SQL InformationSchema to determine tabl
 
 ### Pick a Table
 
-Related tables are automatically selected and will be included in your query. Don't worry, you can deselect them on the next page.
+After selecting a base table for your query, related tables are automatically selected based on declaritive references found in your schema. Those FK references will be included in your query using a JOIN. Don't worry, you can exclude any of them on the next page.
 
 ![InfoView](infoview.png?raw=true)
 
 ### Tweak and Save the Generated Query
 
-Sample data is queried from your database to make it easy to include just what you need for the query. Click **Save SQL Query** to save your query to the SQL query store (table).
+Sample data is queried from your database to make it easy to include just what you need for the query. Exclude a related table if it is not of interest and/or exclude columns that are also not of interest. Click the **Run Query** button to see which rows will be returned from your query as defined.
+
+Click **Save SQL Query** to save your query to the SQL query store (table) and make it available for use in any application that wants to use that queried result.
 
 ![QueryView](queryview.png?raw=true)
 
 ### See The Code
 
-The cloned solution has a class library with several helpful classes to work with your query. This example shows how the **QueryRunnerController** class (from .Net Controller) can be used to surface your query in a client application.
+The cloned solution has a class library with several helpful classes to work with your query. This example shows how the **QueryRunnerController** class (from .Net Controller) can be used to surface your query in a client application. **MUCH** more coming here... stay tuned!!
 
 ![CodeView](codeview.png?raw=true)
 
