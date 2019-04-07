@@ -1,0 +1,40 @@
+{
+    "name": "jquery.datatables",
+    "libraryName": "JQuery DataTables",
+    "sourceRepoURL": "https://www.github.com/DefinitelyTyped/DefinitelyTyped",
+    "data": {
+        "contributors": [
+            {
+                "name": "Kiarash Ghiaseddin",
+                "url": "https://github.com/Silver-Connection/DefinitelyTyped"
+            },
+            {
+                "name": "Omid Rad",
+                "url": "https://github.com/omidkrad"
+            },
+            {
+                "name": "Armin Sander",
+                "url": "https://github.com/pragmatrix/"
+            }
+        ],
+        "dependencies": {
+            "jquery": "*"
+        },
+        "pathMappings": {},
+        "libraryMajorVersion": 1,
+        "libraryMinorVersion": 10,
+        "typeScriptVersion": "2.0",
+        "libraryName": "JQuery DataTables",
+        "typingsPackageName": "jquery.datatables",
+        "projectName": "http://www.datatables.net",
+        "sourceRepoURL": "https://www.github.com/DefinitelyTyped/DefinitelyTyped",
+        "globals": [],
+        "declaredModules": [],
+        "files": [
+            "index.d.ts"
+        ],
+        "hasPackageJson": false,
+        "contentHash": "143d782eb7f9a220a8f98be50e6c6ac8c6dab5cd223498ca2bd988d61ebbe8c0"
+    },
+    "isLatest": true
+}

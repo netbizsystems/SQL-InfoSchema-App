@@ -1,0 +1,58 @@
+﻿@{
+    var foo = 123;
+}
+
+<div class="text-center">
+    <h1 class="display-4">SQL CodeBuilder</h1>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <h5 class="card-header">C# Web API Example using the <span class="text-primary" data-bind="text:queryName"></span> query</h5>
+            <div class="card-body">
+                <h5 class="card-title">Using <a target="_blank" href="https://www.nuget.org/profiles/netbiz">AndersonEnterprise.SqlQueryService</a> NuGet package</h5>
+                <pre>
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using AndersonEnterprise.SqlQueryService; <span style="color:green">// << get from NuGet</span>
+
+namespace Sample.Controllers.Apis
+{
+    /// &lt;summary&gt;
+    /// <span style="color:green"><span data-bind="text:queryName"></span> - web api controller for returning rows from named-query "<text data-bind="text:queryName"></text>"</span>
+    /// &lt;/summary&gt;
+    [Route("api/[controller]")] <span style="color:green">//api/<span data-bind="text:queryName"></span></span>
+    public class <span data-bind="text:queryName"></span>Controller : <strong>InfoQueryServiceController</strong>
+    {
+        public <span data-bind="text:queryName"></span>Controller(IConfiguration config) : base(config) { }
+        <span style="color:green">// set known query name ... base controller will chase it down and run it</span>
+        public override string QueryName => "<text data-bind="text:queryName"></text>";
+    }
+}
+</pre>
+                <p class="text-info">Other examples/techniques can be found in the GitHub download. Run query and see result in console.</p>
+                <a data-bind="click:runQuery" href="#" class="btn btn-sm btn-primary">Run Query (see result in console)</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <h5 class="card-header">Javascript Fetch Example</h5>
+            <div class="card-body">
+<pre>
+fetch("/api/<span data-bind="text:queryName"></span>", { method: 'GET' })
+.then(response => { return response.json(); })
+.then(jsonData => {
+    console.log(jsonData);
+});
+</pre>
+            </div>
+        </div>
+    </div>
+</div>

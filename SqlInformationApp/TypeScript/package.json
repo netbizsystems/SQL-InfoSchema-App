@@ -1,0 +1,16 @@
+{
+  "name": "tscripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "foo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jquery": "^3.3.29",
+    "@types/jquery.datatables": "^1.10.36",
+    "@types/knockout": "^3.4.64"
+  }
+}

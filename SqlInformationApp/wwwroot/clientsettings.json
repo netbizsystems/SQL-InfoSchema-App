@@ -1,0 +1,16 @@
+{
+  "foos": [
+    {
+      "name": "AAA",
+      "credits": 250
+    },
+    {
+      "name": "YYY",
+      "credits": 5800
+    },
+    {
+      "name": "ZZZ",
+      "credits": 5800
+    }
+  ]
+}

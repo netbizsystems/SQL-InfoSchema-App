@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="tab-content">
+    <div id="nav-info-partial" class="tab-pane fade show active">
+        @{ Html.RenderPartial("~/Views/Home/InfoViewPartial.cshtml", model: new object()); }
+    </div>
+    <div id="nav-query-partial" class="tab-pane fade">
+        @{ Html.RenderPartial("~/Views/Home/QueryViewPartial.cshtml", model: new object()); }
+    </div>
+    <div id="nav-code-partial" class="tab-pane fade">
+        @{ Html.RenderPartial("~/Views/Home/CodeViewPartial.cshtml", model: new object()); }
+    </div>
+</div>
+
+<br/><br /><h5><strong>talk is cheap</strong>... get-the-code from <mark><a target="_blank" href="https://github.com/netbizsystems/SQL-InfoSchema-App">GitHub</a></mark> and get with it!!</h5>
+
+@section scripts {
+    <script type="text/javascript"></script>
+}

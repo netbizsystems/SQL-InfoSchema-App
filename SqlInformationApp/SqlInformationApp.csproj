@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <RootNamespace>AndersonEnterprise.SqlInformationApp</RootNamespace>
+    <AssemblyName>AndersonEnterprise.SqlInformationApp</AssemblyName>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="TScripts\**" />
+    <Compile Remove="TypeScript\**" />
+    <Content Remove="TScripts\**" />
+    <Content Remove="TypeScript\**" />
+    <EmbeddedResource Remove="TScripts\**" />
+    <EmbeddedResource Remove="TypeScript\**" />
+    <None Remove="TScripts\**" />
+    <None Remove="TypeScript\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\Apis\InfoAppQueriesController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\js\bar.js" />
+    <Content Remove="wwwroot\js\bar.js.map" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="4.3.1" />
+    <PackageReference Include="BuildBundlerMinifier" Version="2.9.406" />
+    <PackageReference Include="Dapper" Version="1.60.1" />
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="knockoutjs" Version="3.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\SqlQueryService\SqlQueryService.csproj" />
+  </ItemGroup>
+
+</Project>

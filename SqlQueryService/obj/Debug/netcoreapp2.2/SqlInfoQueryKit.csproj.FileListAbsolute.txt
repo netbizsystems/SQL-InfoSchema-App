@@ -1,0 +1,9 @@
+C:\Users\David\Source\Repos\InfoSchema Builder\SqlInfoQueryKit\bin\Debug\netcoreapp2.2\SqlInfoQueryKit.deps.json
+C:\Users\David\Source\Repos\InfoSchema Builder\SqlInfoQueryKit\bin\Debug\netcoreapp2.2\SqlInfoQueryKit.dll
+C:\Users\David\Source\Repos\InfoSchema Builder\SqlInfoQueryKit\bin\Debug\netcoreapp2.2\SqlInfoQueryKit.pdb
+C:\Users\David\Source\Repos\InfoSchema Builder\SqlInfoQueryKit\obj\Debug\netcoreapp2.2\SqlInfoQueryKit.csproj.CoreCompileInputs.cache
+C:\Users\David\Source\Repos\InfoSchema Builder\SqlInfoQueryKit\obj\Debug\netcoreapp2.2\SqlInfoQueryKit.AssemblyInfoInputs.cache
+C:\Users\David\Source\Repos\InfoSchema Builder\SqlInfoQueryKit\obj\Debug\netcoreapp2.2\SqlInfoQueryKit.AssemblyInfo.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\SqlInfoQueryKit\obj\Debug\netcoreapp2.2\SqlInfoQueryKit.dll
+C:\Users\David\Source\Repos\InfoSchema Builder\SqlInfoQueryKit\obj\Debug\netcoreapp2.2\SqlInfoQueryKit.pdb
+C:\Users\David\Source\Repos\InfoSchema Builder\SqlInfoQueryKit\obj\Debug\netcoreapp2.2\SqlInfoQueryKit.csprojAssemblyReference.cache

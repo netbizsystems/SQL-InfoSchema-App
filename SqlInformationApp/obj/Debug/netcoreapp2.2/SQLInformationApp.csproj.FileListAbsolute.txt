@@ -1,0 +1,141 @@
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\bin\Debug\netcoreapp2.2\SQLInformationApp.deps.json
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\bin\Debug\netcoreapp2.2\SQLInformationApp.runtimeconfig.json
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\bin\Debug\netcoreapp2.2\SQLInformationApp.runtimeconfig.dev.json
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\bin\Debug\netcoreapp2.2\SQLInformationApp.dll
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\bin\Debug\netcoreapp2.2\SQLInformationApp.pdb
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\bin\Debug\netcoreapp2.2\SQLInformationApp.Views.dll
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\bin\Debug\netcoreapp2.2\SQLInformationApp.Views.pdb
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\bin\Debug\netcoreapp2.2\ClassLibrary1.dll
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\bin\Debug\netcoreapp2.2\ClassLibrary1.pdb
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\bin\Debug\netcoreapp2.2\ClassLibrary1.dll.config
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.csprojAssemblyReference.cache
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.csproj.CoreCompileInputs.cache
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.RazorAssemblyInfo.cache
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.RazorAssemblyInfo.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.AssemblyInfoInputs.cache
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.AssemblyInfo.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.TagHelpers.input.cache
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.TagHelpers.output.cache
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.RazorCoreGenerate.cache
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\Razor\Views\Home\codeviewpartial.g.cshtml.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\Razor\Views\Home\infoviewpartial.g.cshtml.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\Razor\Views\Home\queryviewpartial.g.cshtml.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.RazorTargetAssemblyInfo.cache
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.RazorTargetAssemblyInfo.cs
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.Views.pdb
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.csproj.CopyComplete
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.dll
+C:\Users\David\Source\Repos\InfoSchema Builder\WebApplication2\obj\Debug\netcoreapp2.2\SQLInformationApp.pdb
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.deps.json
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.runtimeconfig.json
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.runtimeconfig.dev.json
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.dll
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.pdb
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.Views.dll
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.Views.pdb
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.dll
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.pdb
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.csprojAssemblyReference.cache
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.csproj.CoreCompileInputs.cache
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorAssemblyInfo.cache
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorAssemblyInfo.cs
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.AssemblyInfoInputs.cache
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.AssemblyInfo.cs
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.TagHelpers.input.cache
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.TagHelpers.output.cache
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorCoreGenerate.cache
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\codeviewpartial.g.cshtml.cs
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\infoviewpartial.g.cshtml.cs
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\queryviewpartial.g.cshtml.cs
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorTargetAssemblyInfo.cache
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorTargetAssemblyInfo.cs
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.Views.pdb
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.csproj.CopyComplete
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.dll
+C:\Users\David\source\repos\InfoSchema Builder\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.pdb
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.deps.json
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.runtimeconfig.json
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.runtimeconfig.dev.json
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.dll
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.pdb
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.Views.dll
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.Views.pdb
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.dll
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.pdb
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.csprojAssemblyReference.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.csproj.CoreCompileInputs.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorAssemblyInfo.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorAssemblyInfo.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.AssemblyInfoInputs.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.AssemblyInfo.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.TagHelpers.input.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.TagHelpers.output.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorCoreGenerate.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\codeviewpartial.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\infoviewpartial.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\queryviewpartial.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorTargetAssemblyInfo.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorTargetAssemblyInfo.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.Views.pdb
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.csproj.CopyComplete
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.dll
+C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.pdb
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.deps.json
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.runtimeconfig.json
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.runtimeconfig.dev.json
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.dll
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.pdb
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.Views.dll
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.Views.pdb
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.dll
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.pdb
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.csprojAssemblyReference.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.csproj.CoreCompileInputs.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorAssemblyInfo.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorAssemblyInfo.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.AssemblyInfoInputs.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.AssemblyInfo.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.TagHelpers.input.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.TagHelpers.output.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorCoreGenerate.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\codeviewpartial.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\infoviewpartial.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\queryviewpartial.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorTargetAssemblyInfo.cache
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.RazorTargetAssemblyInfo.cs
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.Views.pdb
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\SqlInformationApp.csproj.CopyComplete
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.dll
+C:\Users\David\Source\Repos\SQL-InfoSchema-App\SQLInformationApp\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlInformationApp.pdb

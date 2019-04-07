@@ -1,0 +1,50 @@
+﻿
+@{ /* razor context */ }
+
+<div class="text-center">
+    <h1 class="display-4">SQL InformationViewer</h1>
+    <p>Learn about <a href="https://github.com/netbizsystems/SQL-InfoSchema-App">building & running InformationViewer queries</a>.</p>
+</div>
+<br />
+
+<a data-bind="click:onResetQueryClick" href="#">reset query</a><br /><br />
+
+@*loop all schemas*@
+<div data-bind="foreach: $root.infoSchemas">
+    <h4 class="text-primary" data-bind="text:$root.setSchemaContext($data)"></h4>
+    @*loop tables within schema*@
+    <div class="row" data-bind="foreach: $root.getTables($root.$index)">
+        @*apply knockout template to table*@
+        <div class="col-3" data-bind="click: $root.onTableClick, template: { name: 'infotables-template', data: $data }"></div>
+    </div>
+</div>
+
+@*knockout.js template*@
+<script type="text/html" id="infotables-template">
+    <div style="margin-bottom:10px;" class="card" data-bind="class: cardClass">
+        <div style="width:100%" class="flip-card">
+            <div class="flip-card-inner">
+
+                <div class="flip-card-front">
+                    <h4 data-bind="text: table_name"></h4>
+                    <h6 data-bind="text: table_type"></h6>
+                    <span data-bind="visible:isSelectedQueryTable,text:selectedTableSeq" class="badge badge-pill badge-secondary"></span>
+                    <span data-bind="visible:isJoinedQueryTable,text:parentTableSeq" class="badge badge-pill badge-light">1</span>
+                    <div style="position:absolute;bottom:0; margin-bottom:7px;margin:7px;right:5px;">
+                        <span class="fa fa-star" style="font-size:1.5em;" data-bind="visible:isPrimaryQueryTable"></span>
+                        <span class="fa fa-star-o" style="font-size:1.5em;" data-bind="visible:isJoinedQueryTable"></span>
+                    </div>
+                </div>
+
+                <div class="flip-card-back">
+                    <h4 data-bind="text: table_name"></h4>
+                    <div style="position:absolute; bottom:0; margin-bottom:7px; margin:7px; right: 5px;">
+                        <span data-bind="click:function() {$root.onLockClick($data)}, clickBubble: false" class="fa fa-lock" style="font-size:1.5em;"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @*https://knockoutjs.com/documentation/binding-context.html*@
+</script>
