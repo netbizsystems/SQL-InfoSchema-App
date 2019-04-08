@@ -12,7 +12,7 @@ After selecting a base table for your query, related tables are automatically se
 
 ### Tweak and Save the Generated Query
 
-Sample data is queried from your database to make it easy to include just what you need for the query. Exclude a related table if it is not of interest and/or exclude columns that are also not of interest. Click the **Run Query** button to see which rows will be returned from your query as defined.
+Sample data is queried from your database to make it easy to see exactly what the data looks like in the table(s) that you have chosen. Exclude a related table if it is not of interest and/or exclude columns that are also not of interest. Click the **Run Query** button to see which rows will be returned from your query as defined.
 
 Click **Save SQL Query** to save your query to the SQL query store (table) and make it available for use in any application that wants to use that queried result.
 
