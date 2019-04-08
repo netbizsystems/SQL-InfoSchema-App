@@ -24,6 +24,12 @@ The cloned solution has a class library with several helpful classes to work wit
 
 ![CodeView](codeview.png?raw=true)
 
+### Manage and Test Your Queries (coming soon)
+
+
+
+![InfoView](libraryview.png?raw=true)
+
 
 ## setup requirements
 
