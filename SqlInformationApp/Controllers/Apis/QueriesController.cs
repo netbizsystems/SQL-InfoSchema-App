@@ -17,16 +17,23 @@ namespace AndersonEnterprise.SqlInformationApp.Controllers.Apis
     {
         public IInfoQueryService InfoQueryService { get; }
 
-        public QueriesController( IInfoQueryService qr)
+        public QueriesController( IInfoQueryService iqs)
         {
-            InfoQueryService = qr;
+            InfoQueryService = iqs;
         }
 
-        [HttpGet] [Route("{queryId}")]  // GET: api/dappers
+        [HttpGet] [Route("{queryId}")] 
         public IActionResult Get( string queryId, bool isPrimary)
         {
             //todo: this query only wants one single row.. so ask for 0??
             return Ok(InfoQueryService.RunTableQuery(queryOrTableId: queryId, topRows: 0));
+        }
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var result = InfoQueryService.GetAllQueries();
+
+            return Ok(result);
         }
 
         [HttpPost("InsertNamedQuery/")]
@@ -78,12 +85,38 @@ namespace AndersonEnterprise.SqlInformationApp.Controllers.Apis
             }
         }
 
+        //[HttpPut("RunNamedQuery/")]
+        //public IActionResult RunNamedQuery([FromBody]NamedQuery namedQuery)
+        //{
+        //    if (namedQuery == null) return BadRequest("required data not received by api/queries/RunNamedQuery");
+
+        //    try
+        //    {
+        //        return Json(new { queryResult = InfoQueryService.RunNamedQuery(namedQuery.QueryName) } );
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        var errorIdAndText = ErrorFeedback.QueryTimeout.Split("/");
+        //        return StatusCode((int)HttpStatusCode.BadRequest, new { AppErrorId = errorIdAndText[0], AppErrorText = errorIdAndText[1] });
+        //    }
+        //}
+
         [HttpPost("MakeSqlQueryString/")]
         public IActionResult MakeSqlQueryString([FromBody]List<QueryTableDef> queryJoins)
         {
             var sql = InfoQueryService.BuildSqlSelectString( relations: queryJoins );
 
             return new OkObjectResult(new {fullSql = sql });
+        }
+
+        [HttpGet("GetQuerySchema/")] [Route("{namedQuery}")]
+        public IActionResult GetQuerySchema( string namedQuery )
+        {
+            if ( namedQuery == null ) return BadRequest( "required data not received by api/queries/GetQuerySchema" );
+
+            var result = InfoQueryService.GetQuerySchema( namedQuery );
+
+            return new OkObjectResult(new { foo = result  });
         }
 
         #region private/protected

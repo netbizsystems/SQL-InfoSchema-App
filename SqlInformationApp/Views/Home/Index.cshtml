@@ -13,9 +13,12 @@
     <div id="nav-code-partial" class="tab-pane fade">
         @{ Html.RenderPartial("~/Views/Home/CodeViewPartial.cshtml", model: new object()); }
     </div>
+    <div id="nav-lib-partial" class="tab-pane fade">
+        @{ Html.RenderPartial("~/Views/Home/LibraryPartial.cshtml", model: new object()); }
+    </div>
 </div>
 
-<br/><br /><h5><strong>talk is cheap</strong>... get-the-code from <mark><a target="_blank" href="https://github.com/netbizsystems/SQL-InfoSchema-App">GitHub</a></mark> and get with it!!</h5>
+<br/><br /><h5><strong>Start querying</strong>... get the app from <mark><a target="_blank" href="https://github.com/netbizsystems/SQL-InfoSchema-App">GitHub</a></mark> and be happy</h5>
 
 @section scripts {
     <script type="text/javascript"></script>

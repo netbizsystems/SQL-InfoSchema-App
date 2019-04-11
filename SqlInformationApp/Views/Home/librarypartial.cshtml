@@ -1,0 +1,59 @@
+﻿@{
+    var foo = 123;
+}
+
+<div class="text-center">
+    <h1 class="display-4">SQL Query Library</h1>
+</div>
+<br/><br/>
+
+<div class="row">
+    <div class="col-12">
+        <p>This list does not inlude the query that is currently unsaved in the Query-Builder view.</p>
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>QueryName</th>
+                    <th>Owner</th>
+                    <th>BaseTable</th>
+                    <th>SQL Select</th>
+                    <th>MaxRows</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: queries">
+            <tr>
+                <td style="width:10%" data-bind="text: QueryName"></td>
+                <td style="width:5%" data-bind="text: QueryOwner"></td>
+                <td style="width:10%" data-bind="text: QueryTableBase"></td>
+                <td data-bind="css: { 'lib-sql': isExpanded }" style="width:70%">
+                    <input data-bind="value: QuerySql, click:$root.onSqlClick" type="text" style="width:100%" class="form-control" readonly/>
+                    <div data-bind="visible:isExpanded" style="padding-top:15px;">
+                        <button data-bind="click:$root.onRunSqlClick" type="button" class="btn btn-sm btn-secondary mr-1">Run Query (see result in console)</button>
+                        <button data-bind="click:$root.onSeeCodeClick" type="button" class="btn btn-sm btn-secondary mr-1">See The Code</button>
+                        <br /><br />
+
+                        <div class="form-group">
+                            <label for="q1">Rows Returned from Query:</label>
+                            <input data-bind="value:rowCountActual" id="q1" type="text" class="form-control" placeholder="" readonly>
+                            <span data-bind="visible:rowCountActual.hasError, text:rowCountActual.errorText" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="q2">Result Size (bytes):</label>
+                            <input data-bind="value:rowSize" id="q2" type="text" class="form-control" placeholder="" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="q3">Query Elapse Time:</label>
+                            <input data-bind="value:elapseTime" id="q3" type="text" class="form-control" placeholder="" readonly>
+                        </div>
+
+                    </div>
+                </td>
+                <td style="width:5%" data-bind="text:rowCountExpected"></td>
+            </tr>
+            </tbody>
+            <tfoot><tr><td colspan="5"><a data-bind="click:onRefreshClick" href="#">refresh query library</a></td></tr></tfoot>
+        </table>
+    </div>
+</div>

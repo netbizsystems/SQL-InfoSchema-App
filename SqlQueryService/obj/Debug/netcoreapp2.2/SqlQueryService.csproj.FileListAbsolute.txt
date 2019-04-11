@@ -7,20 +7,20 @@ C:\Users\David\source\repos\InfoSchema Builder\SqlQueryService\obj\Debug\netcore
 C:\Users\David\source\repos\InfoSchema Builder\SqlQueryService\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.dll
 C:\Users\David\source\repos\InfoSchema Builder\SqlQueryService\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.pdb
 C:\Users\David\source\repos\InfoSchema Builder\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.csprojAssemblyReference.cache
-C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SqlQueryService\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.deps.json
-C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SqlQueryService\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.dll
-C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SqlQueryService\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.pdb
-C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.csproj.CoreCompileInputs.cache
-C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.AssemblyInfoInputs.cache
-C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.AssemblyInfo.cs
-C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SqlQueryService\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.dll
-C:\Users\David\Source\Repos\SQL-InfoSchema-App-Azure\SqlQueryService\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.pdb
-C:\Users\David\Source\Repos\SQL-InfoSchema-App\SqlQueryService\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.deps.json
-C:\Users\David\Source\Repos\SQL-InfoSchema-App\SqlQueryService\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.dll
-C:\Users\David\Source\Repos\SQL-InfoSchema-App\SqlQueryService\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.pdb
-C:\Users\David\Source\Repos\SQL-InfoSchema-App\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.csprojAssemblyReference.cache
-C:\Users\David\Source\Repos\SQL-InfoSchema-App\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.csproj.CoreCompileInputs.cache
-C:\Users\David\Source\Repos\SQL-InfoSchema-App\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.AssemblyInfoInputs.cache
-C:\Users\David\Source\Repos\SQL-InfoSchema-App\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.AssemblyInfo.cs
-C:\Users\David\Source\Repos\SQL-InfoSchema-App\SqlQueryService\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.dll
-C:\Users\David\Source\Repos\SQL-InfoSchema-App\SqlQueryService\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.pdb
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryService\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.deps.json
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryService\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.dll
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryService\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.pdb
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.csproj.CoreCompileInputs.cache
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.AssemblyInfoInputs.cache
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.AssemblyInfo.cs
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryService\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.dll
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryService\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.pdb
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.csprojAssemblyReference.cache
+C:\Users\David\source\repos\SQL-InfoSchema-App\SqlQueryService\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.deps.json
+C:\Users\David\source\repos\SQL-InfoSchema-App\SqlQueryService\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.dll
+C:\Users\David\source\repos\SQL-InfoSchema-App\SqlQueryService\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.pdb
+C:\Users\David\source\repos\SQL-InfoSchema-App\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.csproj.CoreCompileInputs.cache
+C:\Users\David\source\repos\SQL-InfoSchema-App\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.AssemblyInfoInputs.cache
+C:\Users\David\source\repos\SQL-InfoSchema-App\SqlQueryService\obj\Debug\netcoreapp2.2\SqlQueryService.AssemblyInfo.cs
+C:\Users\David\source\repos\SQL-InfoSchema-App\SqlQueryService\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.dll
+C:\Users\David\source\repos\SQL-InfoSchema-App\SqlQueryService\obj\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.pdb

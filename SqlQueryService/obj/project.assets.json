@@ -7830,11 +7830,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\David\\Source\\Repos\\SQL-InfoSchema-App\\SqlQueryService\\SqlQueryService.csproj",
+      "projectUniqueName": "C:\\Users\\David\\source\\repos\\SQL-InfoSchema-App\\SqlQueryService\\SqlQueryService.csproj",
       "projectName": "AndersonEnterprise.SqlQueryService",
-      "projectPath": "C:\\Users\\David\\Source\\Repos\\SQL-InfoSchema-App\\SqlQueryService\\SqlQueryService.csproj",
+      "projectPath": "C:\\Users\\David\\source\\repos\\SQL-InfoSchema-App\\SqlQueryService\\SqlQueryService.csproj",
       "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\David\\Source\\Repos\\SQL-InfoSchema-App\\SqlQueryService\\obj\\",
+      "outputPath": "C:\\Users\\David\\source\\repos\\SQL-InfoSchema-App\\SqlQueryService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

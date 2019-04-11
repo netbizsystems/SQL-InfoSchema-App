@@ -25,11 +25,14 @@ namespace AndersonEnterprise.SqlQueryService
         }
 
         [HttpGet]
-        public IActionResult Get([FromQuery]string queryName)
+        public virtual IActionResult Get([FromQuery]string queryName = "")
         {
+            // descendent class sets QueryName.. except for the FooBar controller
+            if (!string.IsNullOrEmpty(QueryName)) queryName = QueryName;
+            
             try
             {
-                var requestedRows = InfoQueryService.RunStoredQuery(queryName);
+                var requestedRows = InfoQueryService.RunNamedQuery(queryName);
                 return Ok(requestedRows);
             }
             catch (Exception)

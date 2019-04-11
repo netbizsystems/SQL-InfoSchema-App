@@ -4,8 +4,7 @@
 
 <div class="text-center">
     <h1 class="display-4">SQL CodeBuilder</h1>
-</div>
-<br />
+</div><br />
 
 <div class="row">
     <div class="col-12">
@@ -13,7 +12,8 @@
             <h5 class="card-header">C# Web API Example using the <span class="text-primary" data-bind="text:queryName"></span> query</h5>
             <div class="card-body">
                 <h5 class="card-title">Using <a target="_blank" href="https://www.nuget.org/profiles/netbiz">AndersonEnterprise.SqlQueryService</a> NuGet package</h5>
-                <pre>
+                <div contenteditable="true" spellcheck="false" style="background-color:aliceblue">
+<pre>
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using AndersonEnterprise.SqlQueryService; <span style="color:green">// << get from NuGet</span>
@@ -32,27 +32,62 @@ namespace Sample.Controllers.Apis
     }
 }
 </pre>
-                <p class="text-info">Other examples/techniques can be found in the GitHub download. Run query and see result in console.</p>
-                <a data-bind="click:runQuery" href="#" class="btn btn-sm btn-primary">Run Query (see result in console)</a>
+                </div>
+                <p class="text-info">Other examples/techniques can be found in the GitHub download.</p>
+                <a data-bind="click:runFooBarQuery" href="#" class="btn btn-sm btn-primary">Run Query (see result in console)</a>
             </div>
         </div>
     </div>
 </div>
 
-<br />
+<br/>
+<h4>Example Code Snippets</h4>
+<br/>
+
 <div class="row">
     <div class="col-12">
-        <div class="card">
-            <h5 class="card-header">Javascript Fetch Example</h5>
-            <div class="card-body">
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="snip1-tab" data-toggle="tab" href="#snip1" role="tab" aria-controls="" aria-selected="true">JS-Fetch</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" id="snip2-tab" data-toggle="tab" href="#snip2" role="tab" aria-controls="" aria-selected="false">HTML-View</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" id="snip3-tab" data-toggle="tab" href="#snip3" role="tab" aria-controls="" aria-selected="false">C#-ViewModel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" id="snip4-tab" data-toggle="tab" href="#snip4" role="tab" aria-controls="" aria-selected="false">JS-ViewModel</a>
+            </li>
+        </ul>
+        
+        <div class="tab-content border" style="padding:15px;">
+            <div class="tab-pane fade show active" id="snip1" role="tabpanel" aria-labelledby="">               
+                <p>Issue GET to API controller seen above.</p>
+                <div contenteditable="true" spellcheck="false" style="background-color:aliceblue">
 <pre>
+<span style="color:green">// get json data from api server</span>
 fetch("/api/<span data-bind="text:queryName"></span>", { method: 'GET' })
-.then(response => { return response.json(); })
-.then(jsonData => {
-    console.log(jsonData);
-});
+    .then(response => { return response.json(); })
+    .then(jsonData => {
+        console.log(jsonData);
+    });
 </pre>
+                </div>
             </div>
+            <div class="tab-pane fade" id="snip2" role="tabpanel" aria-labelledby="">
+                <div data-bind="foreach: queryColumns">
+<pre>
+&lt;label for="usr"&gt;Foo&lt;/label&gt;
+&lt;input data-bind="value:$data" type="text" class="form-control" placeholder=""&gt;
+&lt;span data-bind="visible:$data.hasError, text:$data.errorText" class="text-danger"&gt;&lt;/span&gt;
+</pre>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="snip3" role="tabpanel" aria-labelledby=""></div>
+            <div class="tab-pane fade" id="snip3" role="tabpanel" aria-labelledby=""></div>
         </div>
+
     </div>
 </div>

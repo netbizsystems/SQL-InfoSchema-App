@@ -34,7 +34,7 @@ $(document).ready(function () {
         if (infoViewModel) return; // already been here? nothing to do?
 
         // ko viewmodel
-        function InfoTablesViewModel(allTables, queryTables) {
+        function InfoTablesViewModel(allTables, selectedInfoTables) {
 
             const self = this;
 
@@ -68,6 +68,7 @@ $(document).ready(function () {
                     return item.table_schema === currentSchema;
                 });
             };
+
             // event handlers
             self.onTableClick = function (infoTable, event) {
 
@@ -91,8 +92,8 @@ $(document).ready(function () {
             };
             self.onResetQueryClick = function () {
 
+                selectedInfoTables([]);
                 isQueryBaseEstablished = false;
-
                 self.infoTables.forEach(function (infoTable) {
                     infoTable.isPrimaryQueryTable(false);
                     infoTable.isSelectedQueryTable(false);
@@ -123,7 +124,7 @@ $(document).ready(function () {
 
                 infoTable.isPrimaryQueryTable(false);
 
-                let match = ko.utils.arrayFirst(queryTables(), function (item) {
+                let match = ko.utils.arrayFirst(selectedInfoTables(), function (item) {
                     // is this table alread selected?
                     return item.table_name === infoTable.table_name;
                 });
@@ -143,7 +144,7 @@ $(document).ready(function () {
                             infoTableRelated.isSelectedQueryTable(true);
                             infoTableRelated.isJoinedQueryTable(true);
                             setCardClass(infoTableRelated);
-                            queryTables.push(infoTableRelated);
+                            selectedInfoTables.push(infoTableRelated);
                         } else {
 
                             //infoTableRelated.cardClass("");
@@ -158,7 +159,7 @@ $(document).ready(function () {
                     infoTable.isSelectedQueryTable(true);
                     infoTable.isJoinedQueryTable(false);
                     infoTable.cardClass("flip-card-nolink");
-                    queryTables.push(infoTable); // add to query
+                    selectedInfoTables.push(infoTable); // add to query
                 }
 
                 return;
@@ -167,13 +168,13 @@ $(document).ready(function () {
 
                 tableSeq = 1;
                 isQueryBaseEstablished = true;
-                queryTables([]);
+                selectedInfoTables([]);
 
                 infoTable.isPrimaryQueryTable(true);
                 infoTable.isSelectedQueryTable(true);
                 infoTable.isJoinedQueryTable(false);
                 infoTable.selectedTableSeq(tableSeq);
-                queryTables.push(infoTable);
+                selectedInfoTables.push(infoTable);
 
                 // select card(s) related to current card
                 self.infoTables.forEach(function (infoTableRelated) {
@@ -195,7 +196,7 @@ $(document).ready(function () {
                         infoTableRelated.isJoinedQueryTable(true);
                         setCardClass(infoTableRelated);
 
-                        queryTables.push(infoTableRelated);
+                        selectedInfoTables.push(infoTableRelated);
                     } else {
 
                         setCardClass(infoTableRelated);
@@ -259,7 +260,7 @@ $(document).ready(function () {
                     return;
                 }
 
-                let bodyData = { queryPk: self.queryPk, queryName: self.queryName(), querySql: self.sqlSelectStatement() };
+                let bodyData = { queryPk: self.queryPk, queryName: self.queryName(), queryTableBase: selectedInfoTables()[0].querySchemaPlusTable, querySql: self.sqlSelectStatement(), rowsExpected: self.rowsExpectedMax() };
 
                 if (!self.isNewMode()) {
 
@@ -334,6 +335,7 @@ $(document).ready(function () {
             self.setQueryView = function (selectedTables, isReset) {
 
                 self.queryTables([]);
+                self.queryName("");
 
                 ko.utils.arrayForEach(selectedTables(), function (queryTable) {
 
@@ -425,36 +427,153 @@ $(document).ready(function () {
 
     //---------------------------------------------------------------------------------------------get-the-code view
     let codeViewModel = undefined;
-    selectRequired("#nav-code-tab").on("click", function (evt) {
+    selectRequired("#nav-code-tab").on("click", function (evt, queryName) {
 
-        if (!queryViewModel || queryViewModel.isNewMode()) {
-            alert("name and save your query before viewing code");
-            return false;
+        if (!queryName) {
+            if (!queryViewModel || queryViewModel.isNewMode()) {
+                alert("name and save your query before viewing code");
+                return false;
+            }
+            if (codeViewModel) {
+                codeViewModel.setQueryName(queryViewModel.queryName());
+                return;
+            }
+        } else {
+            if (codeViewModel) {
+                codeViewModel.setQueryName(queryName);
+                return;
+            }
         }
-        if (codeViewModel) return; // already been here? nothing to do?
 
         // ko viewmodel
         function CodeViewModel() {
 
             let self = this;
 
-            self.queryName = ko.observable(queryViewModel.queryName());
+            self.queryName = ko.observable("");
+            self.queryColumns = ko.observableArray([]);
 
             // bound methods
-            self.runQuery = function() {
+            self.runFooBarQuery = function() {
 
                 fetchJson("/api/foobars?queryName=" + self.queryName(), "GET", function (jsonResponse, response) {
                     console.log(jsonResponse);
                 });
             };
+            self.setQueryName = function(queryName) {
+
+                self.queryName(queryName);
+
+                fetchJson("/api/Queries/GetQuerySchema?namedQuery=" + self.queryName(), "GET", function (jsonResponse, response) {
+
+                    if (response.ok) {
+
+                        self.queryColumns(jsonResponse.foo.queryColumns);
+                    }
+                });
+            };
         }
         codeViewModel = new CodeViewModel();
-        ko.applyBindings(codeViewModel, document.getElementById("nav-code-partial"));
+        codeViewModel.setQueryName(!queryName ? queryViewModel.queryName() : queryName);
+        ko.applyBindings(codeViewModel, document.getElementById( "nav-code-partial" ));
+
+    });
+
+    //---------------------------------------------------------------------------------------------query library view
+    let libViewModel = undefined;
+    selectRequired("#nav-lib-tab").on("click", function (evt) {
+
+        if (libViewModel) return; // already been here? nothing to do?
+
+        // ko viewmodel
+        function LibViewModel(selectedInfoTables) {
+
+            let self = this;
+
+            // bound properties
+            self.queries = ko.observableArray([]);
+
+            // bound event handlers
+            self.onRefreshClick = function () {
+
+                self.loadAllQueries();
+
+            };
+            self.onSqlClick = function (evt) {
+
+                let fooo = evt.isExpanded();
+                ko.utils.arrayForEach(self.queries(), function (query) {
+
+                    query.isExpanded(false);
+
+                });
+                evt.isExpanded(!fooo);
+            };
+            self.onRunSqlClick = function (evt) {
+
+                fetchJson("/api/foobars?queryName=" + evt.QueryName, "GET", function (jsonResponse, response) {
+
+                    if (response.ok) {
+
+                        var g = JSON.stringify(jsonResponse).replace(/[\[\]\,\"]/g, ''); //stringify and remove all "stringification" extra data
+
+                        evt.rowCountActual(jsonResponse.length);
+                        evt.rowCountActual.hasError(jsonResponse.length > evt.rowCountExpected());
+                        evt.rowCountActual.errorText("query returns more rows than expected");
+
+                        evt.rowSize(g.length);
+
+                        if (response.ok) {
+                            console.log(jsonResponse);
+                        }
+                    }
+                });
+
+            };
+            self.onSeeCodeClick = function (evt) {
+
+                $("#nav-code-tab").trigger("click", evt.QueryName);
+            };
+
+            // bound methods
+            self.loadAllQueries = function () {
+
+                fetchJson("api/queries", "GET", function (jsonResponse, response) {
+
+                    if (response.ok) {
+
+                        // fixup response data with our UI needs
+                        jsonResponse.forEach(function (query) {
+                            query.isExpanded = ko.observable(false);
+                            query.rowCountExpected = ko.observable(query.QueryRowsExpected);
+                            query.rowCountActual = setupFormEdit(0);
+                            query.rowSize = ko.observable(0);
+                            query.elapseTime = ko.observable(0);
+                        });
+
+                        // update view with new data
+                        self.queries(jsonResponse);
+                    }
+                });
+
+            };
+
+            // private
+            function collapseAll(queries) {
+
+                queries.forEach(function (query) {
+                    query.isExpanded = ko.observable(false);
+                });
+            }
+        }
+        libViewModel = new LibViewModel(selectedInfoTables);
+        libViewModel.loadAllQueries();
+        ko.applyBindings(libViewModel, document.getElementById("nav-lib-partial"));
 
     });
 
 
-    //---------------------------------------------------------------------------------------------usefull stuff
+    //---------------------------------------------------------------------------------------------useful stuff
     function selectRequired(selector) {
 
         let wrappedSet = $(selector);
