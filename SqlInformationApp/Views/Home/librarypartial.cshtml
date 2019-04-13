@@ -21,12 +21,12 @@
                 </tr>
             </thead>
             <tbody data-bind="foreach: queries">
-            <tr>
-                <td style="width:10%" data-bind="text: QueryName"></td>
+            <tr data-bind="">
+                <td class="btn-link" style="width:10%" data-bind="text: QueryName, click:$root.onSqlClick"></td>
                 <td style="width:5%" data-bind="text: QueryOwner"></td>
                 <td style="width:10%" data-bind="text: QueryTableBase"></td>
                 <td data-bind="css: { 'lib-sql': isExpanded }" style="width:70%">
-                    <input data-bind="value: QuerySql, click:$root.onSqlClick" type="text" style="width:100%" class="form-control" readonly/>
+                    <input data-bind="value: QuerySql" type="text" style="width:100%" class="form-control" readonly/>
                     <div data-bind="visible:isExpanded" style="padding-top:15px;">
                         <button data-bind="click:$root.onRunSqlClick" type="button" class="btn btn-sm btn-secondary mr-1">Run Query (see result in console)</button>
                         <button data-bind="click:$root.onSeeCodeClick" type="button" class="btn btn-sm btn-secondary mr-1">See The Code</button>

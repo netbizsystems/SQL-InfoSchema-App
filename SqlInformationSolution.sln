@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlInformationApp", "SQLInf
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C33680D5-2474-4802-80B6-EF91C73E0D33}"
 	ProjectSection(SolutionItems) = preProject
-		stuff\Create dbo.InfoQuery.sql = stuff\Create dbo.InfoQuery.sql
+		stuff\Create AES.InfoQuery.sql = stuff\Create AES.InfoQuery.sql
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection

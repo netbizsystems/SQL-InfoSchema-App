@@ -294,7 +294,7 @@ $(document).ready(function () {
                 ko.utils.arrayForEach(self.queryTables(), function (qt) {
                     if (qt.excludeFromQuery() === false) {
                         let columnsArray = qt.columnList.filter((el) => !qt.columnListX.includes(el)); // isolate the desired column(s)
-                        bodyData.push({ JoinOn: qt.queryConditions(), IsBaseTable: qt.isPrimaryQueryTable(), TableName: qt.querySchemaPlusTable, PkColumnName: qt.pkName, IncludeColumns: columnsArray, FkTableNames: qt.fkList });
+                        bodyData.push({ JoinOn: qt.queryConditions(), IsBaseTable: qt.isPrimaryQueryTable(), TableName: qt.querySchemaPlusTable, IncludeColumns: columnsArray, FkTableNames: qt.fkList, PkColumnNames: qt.pkNames });
                     }
                 });
 

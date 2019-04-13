@@ -41,10 +41,10 @@ namespace AndersonEnterprise.SqlInformationApp.Controllers.Apis
 
             foreach (var infoTable in resourceModel)
             {
-                var pk = columnConstraints.Where(x => x.table_name == infoTable.table_name && x.constraint_name.StartsWith("PK_")).FirstOrDefault();
-                if (pk != null)
+                var pks = columnConstraints.Where(x => x.table_name == infoTable.table_name && x.constraint_name.StartsWith("PK_")).ToList();
+                if (pks != null && pks.Count > 0)
                 {
-                    infoTable.pkName = pk.column_name;
+                    infoTable.pkNames.AddRange(pks.Select(x => x.column_name));
                 }
 
                 PopulateFkList( infoTable, 

@@ -27,6 +27,8 @@ a.navbar-brand {white-space: normal;text-align: center;word-break: break-all; }
 .card-query-related { border-color: red; border-style: dashed; border-width: 2px; }
 .card-query-base { border-color: blue; border-style: dashed; border-width: 2px; }
 
+.foo-content { padding:8px;background-color:aliceblue}
+
 .lib-sql { height:100px; }
 
 /* Sticky footer styles

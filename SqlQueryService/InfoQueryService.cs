@@ -67,24 +67,44 @@ namespace AndersonEnterprise.SqlQueryService
 
             return queryData.QuerySql;
         }
-        private string MakeSelectColumn(string col, char colPrefix)
+        private string MakeSelectColumn(string col, char colPrefix, bool makeUniqueName)
         {
             // This code is necessary so that serialized json data will have unique property names. This
-            // becomes important when joing two table that have one or more duplicate column names. Good table
-            // naming stands will eliminate this need but... (i don't control your standards). So, each
+            // becomes important when joing two tables that have one or more duplicate column names. Good table
+            // naming standards would eliminate this need but... (i don't control your standards). So, each
             // column will be suffixed with its table alais.
+
             var name = string.Empty;
-            if (col == "*")
-            {
-                name = string.Format("A." + col);
-            }
-            else
+            if ( makeUniqueName )
             {
                 // e.g. A.CustomerId AS CustomerId_A
                 name = string.Format("{0}.{1} AS {1}_{0}", colPrefix, col);
             }
+            else
+            {
+                // e.g. A.CustomerId
+                name = string.Format("{0}.{1}", colPrefix, col);
+            }
 
             return name;
+        }
+        private string MakeJoinConditions(string joinConditions, char tableAlais)
+        {
+            var result = string.Empty;
+            var i = 0;
+            foreach (var foos in joinConditions.Split("|"))
+            {
+                if (i == 0)
+                {
+                    result = string.Format("{0}.{1}", tableAlais, foos);
+                }
+                else
+                {
+                    result = string.Format(" AND {0}.{1}", tableAlais, foos);
+                }
+                i++;
+            }
+            return result;
         }
         #endregion
 
@@ -199,11 +219,18 @@ namespace AndersonEnterprise.SqlQueryService
         {
             var sb = new StringBuilder();
             char[] tableAlais = "BCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray(); //todo: deal with limitation of 25
+
+            var allTableColumns = new List<string>();
+            foreach (var rel in relations)
+            {
+                allTableColumns.AddRange(rel.IncludeColumns);
+            }
+
             var baseTable = relations.Where(x => x.IsBaseTable).FirstOrDefault();
             var baseTableColumns = new List<string>();
             foreach (var col in baseTable.IncludeColumns)
             {
-                baseTableColumns.Add(MakeSelectColumn(col, 'A'));
+                baseTableColumns.Add(MakeSelectColumn(col, 'A', false));
             }
 
             int i = 0;
@@ -212,8 +239,9 @@ namespace AndersonEnterprise.SqlQueryService
             {
                 foreach (var col in rel.IncludeColumns)
                 {
-                    //
-                    allOtherColumns.Add(MakeSelectColumn(col, tableAlais[i]));
+                    // check for duplicate column name
+                    var colCount = allTableColumns.Where(x => x.Equals(col)).Count();
+                    allOtherColumns.Add(MakeSelectColumn(col, tableAlais[i], makeUniqueName: colCount > 1 ? true : false));
                 }
                 i++; // next table alais
             }
@@ -227,37 +255,38 @@ namespace AndersonEnterprise.SqlQueryService
                 baseTable.TableName
             ));
 
+            // included join table(s)
             foreach (var joinTable in relations.Where(x => !x.IsBaseTable))
             {
-                // a table may be included even if it has no relation to base table
                 var joinType = baseTable.FkTableNames.Contains(joinTable.TableName) ? "INNER JOIN" : "FULL JOIN";
-                var joinOn = joinType == "INNER JOIN" ? "A." + joinTable.PkColumnName : joinTable.JoinOn;
+                var joinWhere = string.Empty;
 
-                sb.AppendLine( string.Format("{0} {2} {1} on {1}.{3} = {4}",
+                if (joinType == "INNER JOIN")
+                {
+                    joinWhere = string.Join(" AND ", joinTable.PkColumnNames.Select(x => tableAlais[i] + "." + x + " = A." + x));
+                }
+                if (joinType == "FULL JOIN")
+                {
+                    joinWhere = "1 = 1"; // hopefully you specified JoinOn (below)
+                }
+                if (joinTable.JoinOn != string.Empty)
+                {
+                    joinWhere = joinWhere + " AND " +  MakeJoinConditions(joinTable.JoinOn, tableAlais[i]);
+                }
+
+                sb.AppendLine( string.Format("{0} {2} {1} on {3}",
                     joinType,
                     tableAlais[i], 
-                    joinTable.TableName, 
-                    joinTable.PkColumnName,
-                    joinOn) );
+                    joinTable.TableName,
+                    joinWhere) 
+                );
                 i++;
             }
 
-            if (!string.IsNullOrEmpty( baseTable.JoinOn ))
+            // optional query condition(s) on the primary table
+            if (!string.IsNullOrEmpty(baseTable.JoinOn))
             {
-                i = 0;
-                foreach( var foos in baseTable.JoinOn.Split("|") )
-                {
-                    if ( i == 0 )
-                    {
-                        sb.AppendLine( "WHERE A." + foos );
-                    }
-                    else
-                    {
-                        sb.AppendLine( "AND A." + foos );
-                    }
-
-                    i++;
-                }
+                sb.Append(" WHERE " + MakeJoinConditions( baseTable.JoinOn, 'A') );
             }
 
             return sb.ToString();

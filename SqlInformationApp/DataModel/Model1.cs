@@ -33,6 +33,7 @@ namespace AndersonEnterprise.SqlInformationApp
             fkList = new List<string>();
             columnList = new List<string>();
             columnListX = new List<string>();
+            pkNames = new List<string>();
         }
         public string table_name { get; set; }
         public string table_type { get; set; }
@@ -44,7 +45,7 @@ namespace AndersonEnterprise.SqlInformationApp
         [NotMapped]
         public IList<string> columnListX { get; set; }
         [NotMapped]
-        public string pkName { get; set; }
+        public List<string> pkNames { get; set; }
     }
     public class InfoSchemaTableConstraints
     {
