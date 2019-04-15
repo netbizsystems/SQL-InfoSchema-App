@@ -236,6 +236,7 @@ $(document).ready(function () {
 
             let self = this;
 
+            // property binding
             self.isNewMode = ko.observable(true);
             self.queryTables = ko.observableArray();
             self.sqlSelectStatement = ko.observable("");
@@ -343,7 +344,10 @@ $(document).ready(function () {
                     queryTable.querySchemaPlusTable = queryTable.table_schema + "." + queryTable.table_name;
                     queryTable.queryId = queryTable.table_name;
                     queryTable.queryTitle = queryTable.querySchemaPlusTable + " " + (queryTable.isPrimaryQueryTable() ? "(primary)" : "(include/join)");
-                    queryTable.queryConditions = ko.observable(""); //todo: something better than this
+                    queryTable.queryConditions = setupFormEdit(""); //todo: something better than this
+                    queryTable.queryConditions.subscribe(function (newValue) {
+                        self.needsRefresh(true);
+                    });
 
                     self.queryTables.push(queryTable);
                 });
@@ -403,11 +407,13 @@ $(document).ready(function () {
                         let cellX = dataTable.cell(this).index().column;
                         let cellName = headers[cellX].innerHTML;
 
+                        cellName = "*." + cellName; // see c# fixupCondition
+
                         let conditions = queryTable.queryConditions();
                         if (conditions === "") {
                             queryTable.queryConditions( `${cellName} = '${cellData}'` );
                         } else {
-                            queryTable.queryConditions(`${conditions} | ${cellName} = '${cellData}'` );
+                            queryTable.queryConditions(`${conditions} & ${cellName} = '${cellData}'` );
                         }
                     });
 

@@ -92,15 +92,21 @@ namespace AndersonEnterprise.SqlQueryService
         {
             var result = string.Empty;
             var i = 0;
-            foreach (var foos in joinConditions.Split("|"))
+            foreach (var joinCondition in joinConditions.Split(new char[] {'|','&'}, StringSplitOptions.None))
             {
+                var fixupCondition = joinCondition.Replace("*.", tableAlais + ".");
+
                 if (i == 0)
                 {
-                    result = string.Format("{0}.{1}", tableAlais, foos);
+                    result = string.Format(fixupCondition);
                 }
                 else
                 {
-                    result = string.Format(" AND {0}.{1}", tableAlais, foos);
+                    var io = joinConditions.IndexOf(joinCondition);
+                    var lio1 = joinConditions.LastIndexOf("&", io);
+                    var lio2 = joinConditions.LastIndexOf("|", io);
+                    var oper = lio1 > lio2 ? "AND" : "OR";
+                    result = result + string.Format(" {0} {1}", oper, fixupCondition);
                 }
                 i++;
             }
@@ -302,8 +308,8 @@ namespace AndersonEnterprise.SqlQueryService
 
             var result = new NamedQuery();
 
-            var sqlFoo = "SELECT TOP 0 " + querySql.Substring(7); // inject TOP 0
-            var dr = AppDataConnection.ExecuteReader(sqlFoo);
+            var sqlSelectStatement = "SELECT TOP 0 " + querySql.Substring(7); // inject TOP 0
+            var dr = AppDataConnection.ExecuteReader(sqlSelectStatement);
             var schemaTable = dr.GetSchemaTable();
             //For each field in the table...
             foreach (System.Data.DataRow dataRow in schemaTable.Rows)

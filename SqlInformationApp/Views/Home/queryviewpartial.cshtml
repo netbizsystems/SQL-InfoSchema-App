@@ -22,7 +22,7 @@
                     <span data-bind="visible:rowsExpectedMax.hasError, text:rowsExpectedMax.errorText" class="text-danger"></span>
 
                 </div>
-                <button data-bind="click:onSaveNamedQuery"  type="button" class="btn btn-sm btn-primary">Save SQL Query</button>
+                <button data-bind="click:onSaveNamedQuery,disable:needsRefresh"  type="button" class="btn btn-sm btn-primary">Save SQL Query</button>
                 <div class="btn-toolbar float-right" role="toolbar">
                     
                     <div class="btn-group mr-2" role="group">
@@ -64,19 +64,12 @@
                     </div>
 
                     <div data-bind="visible: isPrimaryQueryTable" class="card-body">
-                        @*<button disabled="disabled" class="btn btn-sm btn-primary getdata-button" data-bind="attr: {id: queryId}, click: function(data, event) { $root.loadTablesData($index, data, event); }">Re-Load Sample Data</button>
-                        <div class="btn-toolbar float-right" role="toolbar">
-                            <div class="btn-group mr-2" role="group">
-                                <button type="button" class="btn btn-sm btn-secondary">Set Search Condition(s)</button>
-                            </div>
-                        </div>
-                        <br /><br />*@
                         <span>Click a column header to remove it from the query projection. Add optional selection for this table then click <strong>Refresh Query Statement</strong> (see above) to reflect modifications.</span>
                     </div>
                     <table class="table table-striped table-bordered" style="width:100%;" data-bind="attr: {id: queryId}">
                         <thead><tr></tr></thead>
                     </table>
-                    <input class="form-control-sm" style="width:100%" placeholder="enter optional query conditions here" type="text" data-bind="textInput:queryConditions"/>
+                    <input data-bind="textInput:queryConditions" class="form-control-sm" style="width:100%" placeholder="enter optional query conditions here" type="text" />
                 </div>
             </div>
         </div>
