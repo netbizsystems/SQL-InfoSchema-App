@@ -31,9 +31,19 @@ The cloned solution has a class library with several helpful classes to work wit
 ![InfoView](libraryview.png?raw=true)
 
 
-## setup requirements
+## Prerequisites
 
-**appsettings.json** - requires two connection strings, one for the app meta-data and the other being the database that you are writing queries against. The SQL/DDL script for the meta-data tables can be found in the **Solution Items** folder.
+* Visual Studio 2017
+* .NET Core 2.0 (https://www.microsoft.com/net/core)
+
+## Setup Requirements to Run Local
+
+* Open the SqlInformationSolution.sln solution in Visual Studio.
+* Create the required database objects using the "Create AES.InfoQuery.sql" found in the solution items folder.
+* Update the database connection requirements (shown below) in appsettings.json.
+* Build and Run (F5)
+
+**appsettings.json** - requires two connection strings, one for the app meta-data and the other for the database that you are writing queries against. The SQL/DDL script for the meta-data tables can be found in the **Solution Items** folder.
 ```
 {
   "Logging": {
