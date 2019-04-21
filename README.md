@@ -4,7 +4,7 @@ Unique interface is built by reading the SQL InformationSchema to determine tabl
 
 ** **THIS IS A VERY EARLY LOOK (APRIL-2019) -- STAY TUNED FOR UPDATES**
 
-[Tweet](SQL%20Query%20Builder/Runner%20with%20Dapper%20%20https://github.com/netbizsystems/SQL-InfoSchema-App%20)
+[Tweet](http://twitter.com/home?status=SQL%20Query%20Builder/Runner%20with%20Dapper%20https://github.com/netbizsystems/SQL-InfoSchema-App)
 
 ### Pick a Table
 
