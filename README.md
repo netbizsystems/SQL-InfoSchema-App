@@ -4,6 +4,8 @@ Unique interface is built by reading the SQL InformationSchema to determine tabl
 
 ** **THIS IS A VERY EARLY LOOK (APRIL-2019) -- STAY TUNED FOR UPDATES**
 
+[Tweet](SQL%20Query%20Builder/Runner%20with%20Dapper%20%20https://github.com/netbizsystems/SQL-InfoSchema-App%20)
+
 ### Pick a Table
 
 After selecting a base table for your query, related tables are automatically selected based on declaritive references found in your schema. Those FK references will be included in your query using a JOIN. Don't worry, you can exclude any of them on the next page.
