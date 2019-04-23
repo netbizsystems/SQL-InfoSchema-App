@@ -34,6 +34,7 @@
                 <br/><br/>
                 <label for="Email1msg">Generated SQL Query:</label><label data-bind="visible:needsRefresh">&nbsp;<mark>(click Refresh Query Statement above to reflect changes that you made below)</mark></label>
                 <textarea class="form-control" rows="3" readonly="readonly" data-bind="value: sqlSelectStatement()"></textarea>
+                <span data-bind="visible:sqlSelectStatement.hasError, text:sqlSelectStatement.errorText" class="text-danger"></span>
             </div>
 
         </div>
@@ -64,12 +65,12 @@
                     </div>
 
                     <div data-bind="visible: isPrimaryQueryTable" class="card-body">
-                        <span>Click a column header to remove it from the query projection. Add optional selection for this table then click <strong>Refresh Query Statement</strong> (see above) to reflect modifications.</span>
+                        <span>Click a column header to remove it from the query projection. Add optional query conditions for this table then click <strong>Refresh Query Statement</strong> (see above) to reflect modifications.</span>
                     </div>
                     <table class="table table-striped table-bordered" style="width:100%;" data-bind="attr: {id: queryId}">
                         <thead><tr></tr></thead>
                     </table>
-                    <input data-bind="textInput:queryConditions" class="form-control-sm" style="width:100%" placeholder="enter optional query conditions here" type="text" />
+                    <input data-bind="textInput:queryConditions" class="form-control-sm" style="width:100%" placeholder="add optional query conditions here" type="text" />
                 </div>
             </div>
         </div>

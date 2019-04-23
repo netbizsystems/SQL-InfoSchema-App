@@ -8,12 +8,14 @@ namespace AndersonEnterprise.SqlQueryService.Models
         public NamedQuery()
         {
             QueryColumns = new List<string>();
+            QueryDataTypes = new List<string>();
         }
-        public string QueryPk { get; set; }
+        public string QueryId { get; set; }
         public string QueryName { get; set; }
         public string QueryTableBase { get; set; }
         public string QuerySql { get; set; }
-        public int RowsExpected { get; set; }
+        public int QueryRowsExpected { get; set; }
         public IList<string> QueryColumns { get; set; }
+        public IList<string> QueryDataTypes{ get; set; }
     }
 }

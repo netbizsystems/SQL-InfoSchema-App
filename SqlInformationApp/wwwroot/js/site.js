@@ -3,12 +3,13 @@
 
 $(document).ready(function () {
 
-
-    let allTables = []; // all tables from api fetch 
-    let selectedInfoTables = ko.observableArray([]); // table(s) selected for query   
+    let allInfoTables = []; // all tables from api fetch 
+    let selectedInfoTables = ko.observableArray([]); // table(s) selected for query
+    let isNewQuery = true;
 
     fetchJson("clientsettings.json", "GET", function (jsonResponse, response) { /* do something smart someday */ });
-    fetchJson("api/TableSchemas","GET", function (jsonResponse, response) {
+    fetchJson("api/TableSchemas", "GET", function (jsonResponse, response) {
+
 
         // fixup json data with our UI/binding needs
         jsonResponse.forEach(function (infoTable) {
@@ -21,7 +22,7 @@ $(document).ready(function () {
             infoTable.selectedTableSeq = ko.observable(1);
             infoTable.parentTableSeq = ko.observable(0);
 
-            allTables.push(infoTable);
+            allInfoTables.push(infoTable);
         });
         // get started on the info view
         selectRequired("#nav-info-tab").trigger('click');
@@ -31,10 +32,12 @@ $(document).ready(function () {
     let infoViewModel = undefined;
     selectRequired("#nav-info-tab").on("click", function (evt) {
 
+        location.hash = "info";
+
         if (infoViewModel) return; // already been here? nothing to do?
 
         // ko viewmodel
-        function InfoTablesViewModel(allTables, selectedInfoTables) {
+        function InfoTablesViewModel(allInfoTables, selectedInfoTables) {
 
             const self = this;
 
@@ -44,19 +47,12 @@ $(document).ready(function () {
                 isQueryBaseEstablished = false,
                 tableSeq = 888;
 
-            // fixup json data with our UI needs
-            allTables.forEach(function (infoTable) {
-                infoTable.cardClass = ko.observable("");
-                infoTable.isSelectedQueryTable = ko.observable(false);
-                infoTable.isPrimaryQueryTable = ko.observable(false);
-                infoTable.isJoinedQueryTable = ko.observable(false);
-                infoTable.excludeFromQuery = ko.observable(false);
-                infoTable.selectedTableSeq = ko.observable(1);
-                infoTable.parentTableSeq = ko.observable(0);
+            // get unique schema name(s)
+            allInfoTables.forEach(function (infoTable) {
                 allSchemas.push(infoTable.table_schema);
             });
-            self.infoTables = allTables;
-            self.infoSchemas = [...new Set(allSchemas)]; // get unique schemas
+            self.infoSchemas = [...new Set(allSchemas)];
+            self.infoTables = allInfoTables;
 
             // functions
             self.setSchemaContext = function (schema) {
@@ -77,21 +73,14 @@ $(document).ready(function () {
                 } else {
                     initiateNewQuery(infoTable);
                 }
-
             };
             self.onLockClick = function (data) {
 
-                // SAVE FOR LATER USE
-                //if (!isQueryBaseEstablished) {
-                //    self.onTableClick(data, null);
-                //    isQueryBaseEstablished = true;
-                //} else {
-                //    self.onTableClick(data, null);
-                //}
                 self.onTableClick(data, null);
             };
             self.onResetQueryClick = function () {
 
+                isNewQuery = true;
                 selectedInfoTables([]);
                 isQueryBaseEstablished = false;
                 self.infoTables.forEach(function (infoTable) {
@@ -110,15 +99,12 @@ $(document).ready(function () {
                     return;
                 }
 
-                let selectedTableSeq = infoTable.selectedTableSeq();
                 let parentTableSeq = infoTable.parentTableSeq();
-
                 if (infoTable.isPrimaryQueryTable() === true) {
                     infoTable.cardClass("flip-card-selected");
                 } else {
                     infoTable.cardClass(parentTableSeq === 1 ? "flip-card-related1" : "flip-card-related2");
                 }
-
             }
             function addToQuery(infoTable) {
 
@@ -206,7 +192,7 @@ $(document).ready(function () {
                 setCardClass(infoTable); // select card that was clicked
             }
         }
-        infoViewModel = new InfoTablesViewModel(allTables, selectedInfoTables);
+        infoViewModel = new InfoTablesViewModel(allInfoTables, selectedInfoTables);
         ko.applyBindings(infoViewModel, document.getElementById("nav-info-partial"));
 
     });
@@ -219,12 +205,15 @@ $(document).ready(function () {
             alert("pick a table to get started");
             return false;
         }
+        location.hash = "query";
         if (queryViewModel) {
 
-            queryViewModel.setQueryView( selectedInfoTables, true );
+            if (isNewQuery) {
 
-            queryViewModel.onRefreshSQL();
-            queryViewModel.loadTablesData();
+                queryViewModel.setQueryView(selectedInfoTables, isNewQuery);
+                queryViewModel.onRefreshSQL();
+                queryViewModel.loadTablesData();
+            }
 
             $("table").resize(); // do not remove ... maintains column/header width
 
@@ -239,8 +228,7 @@ $(document).ready(function () {
             // property binding
             self.isNewMode = ko.observable(true);
             self.queryTables = ko.observableArray();
-            self.sqlSelectStatement = ko.observable("");
-            self.queryPk = undefined;
+            self.queryId = undefined;
             self.needsRefresh = ko.observable(false);
             // form input
             self.queryName = setupFormEdit("");
@@ -251,6 +239,7 @@ $(document).ready(function () {
             self.rowsExpectedMax.subscribe(function (newValue) { 
 
             });
+            self.sqlSelectStatement = setupFormEdit("");
             // dom event binding
             self.onSaveNamedQuery = function () {
 
@@ -260,8 +249,9 @@ $(document).ready(function () {
 
                     return;
                 }
+                isNewQuery = false; // no longer a new query
 
-                let bodyData = { queryPk: self.queryPk, queryName: self.queryName(), queryTableBase: selectedInfoTables()[0].querySchemaPlusTable, querySql: self.sqlSelectStatement(), rowsExpected: self.rowsExpectedMax() };
+                let bodyData = { queryId: self.queryId, queryName: self.queryName(), queryTableBase: selectedInfoTables()[0].querySchemaPlusTable, querySql: self.sqlSelectStatement(), queryRowsExpected: self.rowsExpectedMax() };
 
                 if (!self.isNewMode()) {
 
@@ -282,11 +272,10 @@ $(document).ready(function () {
                             self.queryName.errorText(jsonResponse.appErrorText);
                         } else {
                             self.queryName.hasError(false);
-                            self.queryPk = jsonResponse.result;
+                            self.queryId = jsonResponse.result;
                         }
                         self.isNewMode(self.queryName.hasError());
                     });
-
                 }
             };
             self.onRefreshSQL = function() {
@@ -300,8 +289,15 @@ $(document).ready(function () {
                 });
 
                 fetchJson("/api/Queries/MakeSqlQueryString", "POST", bodyData, function (jsonResponse, response) {
-                    self.sqlSelectStatement(jsonResponse.fullSql);
-                    self.needsRefresh(false);
+
+                    if (response.ok) {
+                        self.sqlSelectStatement(jsonResponse.fullSql);
+                        self.needsRefresh(false);
+                        self.sqlSelectStatement.hasError(false);
+                    } else {
+                        self.sqlSelectStatement.hasError(true);
+                        self.sqlSelectStatement.errorText("sql statement failed -- check syntax of each table conditions");
+                    }
                 });
 
             };
@@ -333,7 +329,7 @@ $(document).ready(function () {
 
             };
             //
-            self.setQueryView = function (selectedTables, isReset) {
+            self.setQueryView = function (selectedTables) {
 
                 self.queryTables([]);
                 self.queryName("");
@@ -420,7 +416,7 @@ $(document).ready(function () {
                 });
             };
 
-            self.setQueryView(selectedInfoTables, false); //
+            self.setQueryView(selectedInfoTables, isNewQuery); //
         }
         queryViewModel = new QueryViewModel( selectedInfoTables );
         ko.applyBindings( queryViewModel, document.getElementById("nav-query-partial"));
@@ -451,6 +447,8 @@ $(document).ready(function () {
             }
         }
 
+        location.hash = "code";
+
         // ko viewmodel
         function CodeViewModel() {
 
@@ -458,6 +456,7 @@ $(document).ready(function () {
 
             self.queryName = ko.observable("");
             self.queryColumns = ko.observableArray([]);
+            self.queryTypes = ko.observableArray([]);
 
             // bound methods
             self.runFooBarQuery = function() {
@@ -474,9 +473,13 @@ $(document).ready(function () {
 
                     if (response.ok) {
 
-                        self.queryColumns(jsonResponse.foo.queryColumns);
+                        self.queryColumns(jsonResponse.querySchema.queryColumns);
+                        self.queryTypes(jsonResponse.querySchema.queryDataTypes);
                     }
                 });
+            };
+            self.getJsonFormat = function(propertyName) {
+                return propertyName.charAt(0).toLowerCase() + propertyName.slice(1);
             };
         }
         codeViewModel = new CodeViewModel();
@@ -489,6 +492,8 @@ $(document).ready(function () {
     let libViewModel = undefined;
     selectRequired("#nav-lib-tab").on("click", function (evt) {
 
+        location.hash = "library";
+
         if (libViewModel) return; // already been here? nothing to do?
 
         // ko viewmodel
@@ -500,6 +505,19 @@ $(document).ready(function () {
             self.queries = ko.observableArray([]);
 
             // bound event handlers
+            self.onSaveQueryClick = function (evt) {
+
+                let bodyData = { queryId: evt.QueryId ,QueryName: evt.QueryName, queryRowsExpected: evt.QueryRowsExpected, QuerySql: evt.QuerySql};
+
+                fetchJson("/api/Queries/UpdateSavedQuery", "PUT", bodyData, function (jsonResponse, response) {
+                    if (response.status !== 200) {
+                        //todo: ???
+                    } else {
+                        //todo: ???
+                    }
+                });
+
+            };
             self.onRefreshClick = function () {
 
                 self.loadAllQueries();

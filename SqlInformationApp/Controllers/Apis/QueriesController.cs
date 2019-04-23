@@ -69,6 +69,22 @@ namespace AndersonEnterprise.SqlInformationApp.Controllers.Apis
             }
         }
 
+        [HttpPut("UpdateSavedQuery/")]
+        public IActionResult UpdateSavedQuery([FromBody]NamedQuery namedQuery)
+        {
+            if (namedQuery == null) return BadRequest("required data not received by api/queryrunner/UpdateSavedQuery");
+
+            try
+            {
+                var result = InfoQueryService.UpdateSavedQuery(namedQuery);
+                return Json(new {  });
+            }
+            catch (Exception e)
+            {
+                return StatusCode((int)HttpStatusCode.BadRequest, new { AppErrorId = 1000, AppErrorText = "update failed because of foo, bar, baz!" });
+            }
+        }
+
         [HttpPut("RunSqlQuery/")]
         public IActionResult RunSqlQuery([FromBody]SqlQuery sqlQuery)
         {
@@ -80,33 +96,23 @@ namespace AndersonEnterprise.SqlInformationApp.Controllers.Apis
             }
             catch (Exception e)
             {
-                var errorIdAndText = ErrorFeedback.QueryTimeout.Split("/");
-                return StatusCode((int)HttpStatusCode.BadRequest, new { AppErrorId = errorIdAndText[0], AppErrorText = errorIdAndText[1] });
+                return StatusCode((int)HttpStatusCode.BadRequest, new { AppErrorId = ErrorFeedback.QueryTimeout.Item1, AppErrorText = ErrorFeedback.QueryTimeout.Item2 });
             }
         }
-
-        //[HttpPut("RunNamedQuery/")]
-        //public IActionResult RunNamedQuery([FromBody]NamedQuery namedQuery)
-        //{
-        //    if (namedQuery == null) return BadRequest("required data not received by api/queries/RunNamedQuery");
-
-        //    try
-        //    {
-        //        return Json(new { queryResult = InfoQueryService.RunNamedQuery(namedQuery.QueryName) } );
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        var errorIdAndText = ErrorFeedback.QueryTimeout.Split("/");
-        //        return StatusCode((int)HttpStatusCode.BadRequest, new { AppErrorId = errorIdAndText[0], AppErrorText = errorIdAndText[1] });
-        //    }
-        //}
 
         [HttpPost("MakeSqlQueryString/")]
         public IActionResult MakeSqlQueryString([FromBody]List<QueryTableDef> queryJoins)
         {
-            var sql = InfoQueryService.BuildSqlSelectString( relations: queryJoins );
-
-            return new OkObjectResult(new {fullSql = sql });
+            try
+            {
+                var sql = InfoQueryService.BuildSqlSelectString(relations: queryJoins);
+                return new OkObjectResult(new { fullSql = sql });
+            }
+            catch
+            {
+                var errorIdAndText = ErrorFeedback.QuerySqlSyntax.Split("/");
+                return StatusCode((int)HttpStatusCode.BadRequest, new { AppErrorId = errorIdAndText[0], AppErrorText = errorIdAndText[1] });
+            }
         }
 
         [HttpGet("GetQuerySchema/")] [Route("{namedQuery}")]
@@ -116,14 +122,15 @@ namespace AndersonEnterprise.SqlInformationApp.Controllers.Apis
 
             var result = InfoQueryService.GetQuerySchema( namedQuery );
 
-            return new OkObjectResult(new { foo = result  });
+            return new OkObjectResult(new { QuerySchema = result  });
         }
 
         #region private/protected
         static class ErrorFeedback
         {
-            public const string QueryTimeout = "1000/query may have time out... try again";
+            public static readonly Tuple<string, string> QueryTimeout = new Tuple<string, string>("1000", "query may have time out... try again");
             public const string QueryNameInUse = "1001/this queryname is already being used";
+            public const string QuerySqlSyntax = "1002/sql syntax failed.. check table conditions";
         }
         #endregion
     }

@@ -68,7 +68,7 @@ namespace AndersonEnterprise.SqlInformationApp
 
             services.AddSingleton<IDbConnection>(new SqlConnection(DefaultConnectionString));
             services.AddSingleton<IInfoQueryService>( new InfoQueryService(Configuration) );
-            services.AddSingleton<FooBarsController>(new FooBarsController(Configuration));
+            services.AddSingleton<IRunTimeService>(new RunTimeService(Configuration));
             services.AddDbContext<Model1> (options => options.UseSqlServer(DefaultConnectionString));
             services.AddDbContext<Model2>(options => options.UseSqlServer(InfoConnectionString));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

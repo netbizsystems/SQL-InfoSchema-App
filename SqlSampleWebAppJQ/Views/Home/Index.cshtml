@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Products_ViewModel
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <label asp-for="ProductID"></label>
+</div>
+
+<p>showing the first 10 rows</p>
+<table class="table table-striped" id="foo-table">
+    <thead><tr><td width="100">ProductID</td><td width="300">Bar</td><td width="300">Bazzzzzzzzzzzzz</td></tr></thead>
+    <tbody></tbody>
+</table>
+
+@section scripts {
+    <script type="text/javascript">
+        $(function() {
+
+            // get json data from api server
+            fetch("/api/Products?skip=0&take=10", { method: 'GET' })
+                .then( response => { return response.json(); })
+                .then( jsonData => {
+
+                    let rows = "";
+                    jsonData.forEach( function( data, index) {
+
+                        let foo = new Foo( data);
+                        rows = rows + `<tr><td>${foo.productID}</td><td>${foo.name}</td><td>${foo.productNumber}</td></tr>`;
+                    });
+                    $( 'tbody:last-child', "#foo-table").append( rows);
+                })
+                .catch( function( error) { console.log( error); });
+
+            function Foo( data) {
+
+                this.name = data.Name;
+                this.productID = data.ProductID;
+                this.productNumber = data.ProductNumber;
+            };
+
+        });
+    </script>
+}

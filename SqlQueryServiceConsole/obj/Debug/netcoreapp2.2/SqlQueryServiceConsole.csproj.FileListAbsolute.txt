@@ -1,0 +1,14 @@
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryServiceConsole\bin\Debug\netcoreapp2.2\SqlQueryServiceConsole.deps.json
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryServiceConsole\bin\Debug\netcoreapp2.2\SqlQueryServiceConsole.runtimeconfig.json
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryServiceConsole\bin\Debug\netcoreapp2.2\SqlQueryServiceConsole.runtimeconfig.dev.json
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryServiceConsole\bin\Debug\netcoreapp2.2\SqlQueryServiceConsole.dll
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryServiceConsole\bin\Debug\netcoreapp2.2\SqlQueryServiceConsole.pdb
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryServiceConsole\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.dll
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryServiceConsole\bin\Debug\netcoreapp2.2\AndersonEnterprise.SqlQueryService.pdb
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryServiceConsole\obj\Debug\netcoreapp2.2\SqlQueryServiceConsole.csprojAssemblyReference.cache
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryServiceConsole\obj\Debug\netcoreapp2.2\SqlQueryServiceConsole.csproj.CoreCompileInputs.cache
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryServiceConsole\obj\Debug\netcoreapp2.2\SqlQueryServiceConsole.AssemblyInfoInputs.cache
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryServiceConsole\obj\Debug\netcoreapp2.2\SqlQueryServiceConsole.AssemblyInfo.cs
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryServiceConsole\obj\Debug\netcoreapp2.2\SqlQueryServiceConsole.csproj.CopyComplete
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryServiceConsole\obj\Debug\netcoreapp2.2\SqlQueryServiceConsole.dll
+C:\Users\David\source\repos\SQL-InfoSchema-App-Azure\SqlQueryServiceConsole\obj\Debug\netcoreapp2.2\SqlQueryServiceConsole.pdb

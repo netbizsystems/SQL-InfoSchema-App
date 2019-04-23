@@ -16,7 +16,7 @@ namespace AndersonEnterprise.SqlQueryService
         List<object> GetAllQueries();
         string AddNamedQuery(NamedQuery namedQuery);
         string UpdateNamedQuery(NamedQuery namedQuery);
-        List<object> RunNamedQuery(string queryOverride = "");
+        string UpdateSavedQuery(NamedQuery namedQuery);
         List<object> RunTableQuery(string queryOrTableId, int topRows = 1, int startRow = 0);
         List<object> RunSqlQuery(string sqlSelect, int topRows = 1, int startRow = 0);
         string BuildSqlSelectString(List<QueryTableDef> relations, int startRow = 0, int topRows = 1);
@@ -61,11 +61,9 @@ namespace AndersonEnterprise.SqlQueryService
 
         private string GetQuerySql(string queryName)
         {
-            var origReader = InfoDataConnection.ExecuteReader(sql: string.Format("SELECT TOP 1 * FROM AES.InfoQuery WHERE QueryName = '{0}'", queryName));
-            var typedParser = origReader.GetRowParser<InfoQuery>();
-            var queryData = origReader.Parse<InfoQuery>().FirstOrDefault();
+            var result = InfoDataConnection.Query<InfoQuery>(sql: string.Format("SELECT TOP 1 * FROM AES.InfoQuery WHERE QueryName = '{0}'", queryName)).FirstOrDefault();
 
-            return queryData.QuerySql;
+            return result.QuerySql;
         }
         private string MakeSelectColumn(string col, char colPrefix, bool makeUniqueName)
         {
@@ -141,7 +139,7 @@ namespace AndersonEnterprise.SqlQueryService
                     QueryTableBase = namedQuery.QueryTableBase.Trim(),
                     QuerySql = namedQuery.QuerySql,
                     QueryOwner = "AES",
-                    QueryRowsExpected = namedQuery.RowsExpected
+                    QueryRowsExpected = namedQuery.QueryRowsExpected
                 }
             );
 
@@ -158,39 +156,48 @@ namespace AndersonEnterprise.SqlQueryService
         }
         public string UpdateNamedQuery(NamedQuery namedQuery)
         {
-            var guidPk = namedQuery.QueryPk;
+            var guidPk = namedQuery.QueryId;
 
-            InfoDataConnection.Execute( "UPDATE AES.InfoQuery SET QuerySql = @QuerySql WHERE QueryId = @QueryId",
+            InfoDataConnection.Execute("UPDATE AES.InfoQuery SET QuerySql = @QuerySql, QueryRowsExpected = @QueryRowsExpected  WHERE QueryId = @QueryId",
                 new
                 {
-                    QueryId = namedQuery.QueryPk,
-                    QuerySql = namedQuery.QuerySql
+                    QueryId = namedQuery.QueryId,
+                    QuerySql = namedQuery.QuerySql,
+                    QueryRowsExpected = namedQuery.QueryRowsExpected
                 }
             );
 
             InfoDataConnection.Execute("UPDATE AES.InfoQueryVersion SET QuerySql = @QuerySql WHERE QueryId = @QueryId",
                 new
                 {
-                    QueryId = namedQuery.QueryPk,
+                    QueryId = namedQuery.QueryId,
                     QuerySql = namedQuery.QuerySql
                 }
             );
 
             return guidPk;
         }
-
-        public List<object> RunNamedQuery(string queryOverride = "")
+        public string UpdateSavedQuery(NamedQuery namedQuery)
         {
-            string queryName = queryOverride != string.Empty ? queryOverride : requestedQueryName;
+            InfoDataConnection.Execute("UPDATE AES.InfoQuery SET QueryRowsExpected = @QueryRowsExpected  WHERE QueryId = @QueryId",
+                new
+                {
+                    QueryId = namedQuery.QueryId,
+                    QueryRowsExpected = namedQuery.QueryRowsExpected
+                }
+            );
 
-            var querySql = this.GetQuerySql(queryName);
-            if (querySql == null)
-            {
-                throw new ApplicationException(string.Format("requested queryname ({0}) does not exist", requestedQueryName));
-            }
+            //InfoDataConnection.Execute("UPDATE AES.InfoQueryVersion SET QuerySql = @QuerySql WHERE QueryId = @QueryId",
+            //    new
+            //    {
+            //        QueryId = namedQuery.QueryId,
+            //        QuerySql = namedQuery.QuerySql
+            //    }
+            //);
 
-            return RunSqlQuery(querySql, -1);
+            return string.Empty;
         }
+
         public List<object> RunTableQuery( string queryOrTableId, int topRows = 1, int startRow = 0)
         {
             var columnList = new List<string>() {"*"};
@@ -199,6 +206,8 @@ namespace AndersonEnterprise.SqlQueryService
                 new QueryTableDef() {TableName = queryOrTableId, IsBaseTable = true, IncludeColumns = columnList}
             };
             var dapperSql = this.BuildSqlSelectString(queryTables, 0, topRows);
+
+            //todo: use runtime services which already does this?
             return this.RunSqlQuery(dapperSql, topRows, startRow);
         }
         public List<object> RunSqlQuery(string sqlSelect, int topRows = 1, int startRow = 0)
@@ -305,12 +314,12 @@ namespace AndersonEnterprise.SqlQueryService
             {
                 throw new ApplicationException(string.Format("requested queryname ({0}) does not exist", queryName));
             }
-
             var result = new NamedQuery();
 
             var sqlSelectStatement = "SELECT TOP 0 " + querySql.Substring(7); // inject TOP 0
             var dr = AppDataConnection.ExecuteReader(sqlSelectStatement);
             var schemaTable = dr.GetSchemaTable();
+            
             //For each field in the table...
             foreach (System.Data.DataRow dataRow in schemaTable.Rows)
             {
@@ -324,7 +333,7 @@ namespace AndersonEnterprise.SqlQueryService
 
                     if (dataColumn.ColumnName == "DataType")
                     {
-                        //result.QueryColumns.Add(dataRow[dataColumn].ToString());
+                        result.QueryDataTypes.Add(dataRow[dataColumn].ToString());
                     }
                 }
             }
